@@ -10,7 +10,7 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      install: dos2unix
+      - install: dos2unix
       - uses: actions/checkout@v2
       - run: autoreconf -i
       - run: ./configure
