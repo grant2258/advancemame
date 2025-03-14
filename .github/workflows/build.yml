@@ -16,7 +16,6 @@ jobs:
       - run: make all
       - run: make dist
   build-win:
-    if: false # Disabled as it takes too much time, more than half an hour
     runs-on: windows-latest
     defaults:
       run:
@@ -30,4 +29,4 @@ jobs:
           install: mingw-w64-i686-gcc mingw-w64-i686-pkg-config mingw-w64-i686-SDL2 autoconf automake make
       - run: autoreconf -i --include=/mingw32/share/aclocal
       - run: ./configure
-      - run: make all
+      - run: make all -j3
