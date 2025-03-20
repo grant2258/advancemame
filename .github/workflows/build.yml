@@ -17,8 +17,8 @@ jobs:
       - run: make dist
       - uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: advmame      
+          name: linux
+          path: advmame advmess    
   build-win:
     runs-on: windows-latest
     defaults:
@@ -36,6 +36,6 @@ jobs:
       - run: make all -j3
       - uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: win32
           path: advmame.exe      
  
