@@ -16,11 +16,13 @@ jobs:
       - run: make -j$(nproc) all -j3
       - run: make dist
       - name: Upload Artifact
-     uses: actions/upload-artifact@v4
-       with:
-         name: Windows x32
-         path: |
-          advmame
+  
+    uses: actions/upload-artifact@v4
+      with:
+       name: linux
+       path: |
+         advmame
+
   build-win:
     if: false # Disabled as it takes too much time, more than half an hour
     runs-on: windows-latest
