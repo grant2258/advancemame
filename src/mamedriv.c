@@ -2303,6 +2303,7 @@ V-V                           TP-027
 	DRIVER( ffightua )	/* 12/1989 (c) (US)    */
 	DRIVER( ffightj )	/* 12/1989 (c) (Japan) */
 	DRIVER( ffightj1 )	/* 12/1989 (c) (Japan) */
+	DRIVER( ffightae )  /* 12/1989 (c) 1989 (World) 3P */
 	DRIVER( 1941 )		/*  2/1990 (c) 1990 (World) */
 	DRIVER( 1941j )		/*  2/1990 (c) 1990 (Japan) */
 	DRIVER( 1943mii )       /*  6/1987 (c) 1987 (US) */
@@ -2399,6 +2400,9 @@ V-V                           TP-027
 	DRIVER( rockmanj )	/* 22/09/1995 (c) 1995 (Japan) */
 
 	DRIVER( fcrash )	/* bootleg of Final Fight */
+
+	/* CPS1 Prototype */
+	DRIVER( gulunpa )   /* (c) 1993 (prototype) */
 
 	/* Capcom CPS2 games */
 	/* list completed by CPS2Shock */
@@ -3099,10 +3103,12 @@ DokiDoki Penguin Land *not confirmed
 	DRIVER( transfrm )	/* 834-5803 (c) 1986 */
 	DRIVER( astrofl )	/* 834-5803 (c) 1986 */
 	DRIVER( ridleofp )	/* (c) 1986 Sega / Nasco */
-	DRIVER( fantzn2 )
-	DRIVER( opaopa )    /* (c) 1987 */
-    DRIVER( opaopan )   /* (c) 1987 */
+	DRIVER( slapshtr )      /* (c) 1986 */
+	DRIVER( opaopa )        /* (c) 1987 */
+        DRIVER( opaopan )       /* (c) 1987 */
+	DRIVER( megrescu )	/* (c) 1987 Sega / Exa */
 	DRIVER( tetrisse )	/* (c) 1988 */
+	DRIVER( fantzn2 )
 
 	/* other Sega 8-bit games */
 	DRIVER( turbo )		/* (c) 1981 Sega */
@@ -3725,6 +3731,7 @@ BOMULEUL CHAJARA SEGA ST-V  1997/04/11
 						/* 10 */
 	DRIVER( mp_mazin )	/* 11 */
 	DRIVER( mp_col3 )	/* ?? */
+	DRIVER( mp_gunhe )
 
 	/* Data East "Burger Time hardware" games */
 	DRIVER( lnc )		/* (c) 1981 */
