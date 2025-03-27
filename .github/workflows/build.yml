@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-linux:
-  if: false # Disabled as it takes too much time, more than half an hour
+    if: false # Disabled as it takes too much time, more than half an hour
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
