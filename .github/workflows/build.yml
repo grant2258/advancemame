@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@v2
       - run: autoreconf -i
       - run: ./configure
-      - run: make all -j3
+      - run: -j$(nproc) make all
       - run: make dist
       - uses: actions/upload-artifact@v4
         with:
           name: linux
           path: advmame    
-  build-win:
+  build-win-clang:
     runs-on: windows-latest
     defaults:
       run:
@@ -34,16 +34,35 @@ jobs:
           install: mingw-w64-i686-gcc mingw-w64-i686-clang mingw-w64-i686-pkg-config mingw-w64-i686-SDL2 autoconf automake make zip
       - run: autoreconf -i --include=/mingw32/share/aclocal
       - run: CC=clang CXX=clang++ ./configure.windows
-      - run: make all -j3
+      - run: make -j$(nproc) all
       - uses: actions/upload-artifact@v4
         with:
-          name: win32
+          name: win32-clang
           path: |
            advmame.exe
            advance/svgalib/svgawin/install/svgawin.exe
            advmenu.exe
            advmess.exe
-           
-           
-                
- 
+  build-win-gcc:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32
+          update: true
+          install: mingw-w64-i686-gcc mingw-w64-i686-clang mingw-w64-i686-pkg-config mingw-w64-i686-SDL2 autoconf automake make zip
+      - run: autoreconf -i --include=/mingw32/share/aclocal
+      - run: ./configure.windows
+      - run: make -j$(nproc) all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: win32-gcc
+          path: |
+           advmame.exe
+           advance/svgalib/svgawin/install/svgawin.exe
+           advmenu.exe
+           advmess.exe
