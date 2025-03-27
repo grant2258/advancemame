@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-linux:
+  if: false # Disabled as it takes too much time, more than half an hour
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,12 +31,13 @@ jobs:
         with:
           msystem: MINGW32
           update: true
-          install: mingw-w64-i686-gcc mingw-w64-i686-pkg-config mingw-w64-i686-SDL2 autoconf automake make
+          install: mingw-w64-i686-gcc mingw-w64-i686-clang mingw-w64-i686-pkg-config mingw-w64-i686-SDL2 autoconf automake make zip
       - run: autoreconf -i --include=/mingw32/share/aclocal
-      - run: ./configure.windows
+      - run: CC=clang CXX=clang++ ./configure.windows
       - run: make all -j3
+      - run: zip win32.zip *.exe 
       - uses: actions/upload-artifact@v4
         with:
           name: win32
-          path: advmame.exe      
+          path: win32.zip      
  
